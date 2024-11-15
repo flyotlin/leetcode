@@ -5,7 +5,8 @@
  */
 class Solution {
 private:
-    bool isPalindrome(string s, int i, int j) {
+    string s;
+    bool isPalindrome(int i, int j) {
         while (i < j) {
             if (s[i] != s[j]) {
                 return false;
@@ -16,7 +17,8 @@ private:
     }
 
 public:
-    string longestPalindrome(string s) {
+    string longestPalindrome(string ss) {
+        s = ss;
         if (s.size() == 1) {
             return s;
         }
@@ -25,7 +27,7 @@ public:
         int start = 0;
         for (int k = 0; k < s.size(); k++) {
             for (int i = 0, j = k; j < s.size(); i++, j++) {
-                if (isPalindrome(s, i, j)) {
+                if (isPalindrome(i, j)) {
                     if (j-i+1 > maxLen) {
                         maxLen = j-i+1;
                         start = i;
